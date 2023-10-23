@@ -1,0 +1,11 @@
+La funcion "BlaBla" toma el primer elemento de un array y luego recorre el mismo buscando los numeros mayores y menores del primer elemento.
+Tambien, guarda tanto el numero mayor como el menor en las variable A y B.
+Por ultimo muestra A y B.
+
+Algunos posibles nombres para estas funciones podrían ser:
+-FindMaxValues
+-FindRange
+-FindMajorAndMinor
+
+Por supuesto el nombre dependerá mucho de la informacion que representan los datos dentro del arreglo.
+Entre las 3 opciones que propuse anteriormente elegiría la 2 "FindRange" ya que como el calculo se basa en el primer elemento del array, significa que este primer elemento es un criterio a considerar dentro de los valores tanto mayores como menores.

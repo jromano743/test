@@ -1,0 +1,39 @@
+1)_ Get all users that have access to attribute “Alta” for process “Legajos” on company
+“Sample”
+
+
+SELECT usuario.Cod_usuario 
+
+SELECT u.*
+FROM usuario u
+INNER JOIN permiso p ON u.id_usuario = p.Id_usuario
+INNER JOIN Empresa e ON p.Id_empresa = e.Id_empresa
+INNER JOIN Rol r ON p.Id_rol = r.Id_rol
+INNER JOIN Rol_proceso_atributo rpa ON r.Id_rol = rpa.Id_rol
+INNER JOIN Proceso p2 ON rpa.Id_proceso = p2.Id_proceso
+INNER JOIN Atributo a ON rpa.Id_atributo = a.Id_atributo
+WHERE e.Cod_empresa = 'Sample'
+  AND p2.Cod_proceso = 'Legajos'
+  AND a.Cod_atributo = 'Alta';
+
+2)_ Give access to Usuario = “Juan” on Empresa = “Sample” with Rol = “Supervisor”
+
+DECLARE @idUsuario INT
+SELECT @idUsuario = id_usuario
+FROM usuario
+WHERE Cod_usuario = 'Juan';
+
+DECLARE @idEmpresa INT
+SELECT @idEmpresa = Id_empresa
+FROM Empresa
+WHERE Cod_empresa = 'Sample';
+
+DECLARE @idRol INT
+SELECT @idRol = Id_rol
+FROM Rol
+WHERE Cod_rol = 'Supervisor';
+
+INSERT INTO permiso (Id_usuario, Id_empresa, Id_rol)
+VALUES (@idUsuario, @idEmpresa, @idRol);
+
+

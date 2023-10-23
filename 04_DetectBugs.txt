@@ -1,0 +1,20 @@
+01)_ La variable suma no está inicializada. En el caso de seguir usando el tipo de dato "double" la definicion de la misma debería ser:
+double suma = 0.0;
+
+02)_ La condicion de fin del bucle for está mal escrita. ya que con el operador "<=" (menor o igual) está incluyendo el numero total de elementos del arreglo, el cual es distinto al de sus indices.
+La forma correcta del bucle for seria la siguiente:
+
+for (int i = 0; i < tamano; i++) {
+    suma = suma + array[i];
+}
+
+El recorrido debe hacerce desde el primer indice (0) hasta el tamaño del arreglo - 1.
+
+03)_ En terminos de optimizacion:
+a)_ Agregaría una validacion de que el arreglo no es un nulo. Tanto para no ejecutar el bucle como para evitar la division por 0. En el caso de los arreglos vacios.
+if (array.Length == 0)
+{
+    return 0.0;
+}
+
+b)_ Cambiaría el "for" por un "foreach". Mas que nada para mejorar la legibilidad del codigo.
